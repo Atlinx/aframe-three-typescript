@@ -3,7 +3,7 @@ const route = useRoute()
 </script>
 
 <template>
-  <div class="bg-black text-white flex flex-col" style="min-height:100%">
+  <div class="bg-white text-black dark:text-gray-400 dark:bg-gray-900 flex flex-col" style="min-height:100%">
     <Header />
     <NuxtPage class="flex-auto" />
     <Footer />

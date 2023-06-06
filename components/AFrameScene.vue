@@ -9,11 +9,7 @@ if (process.client) {
 </script>
 
 <template>
-  <AFrameScene>
-    <a-scene v-if="aframeLoaded" embedded style="height: 40em">
-      <a-box position="0 0.5 -3"></a-box>
-      <a-camera></a-camera>
-      <a-sky color="pink"></a-sky>
-    </a-scene>
-  </AFrameScene>
+  <div v-if="aframeLoaded">
+    <slot></slot>
+  </div>
 </template>
