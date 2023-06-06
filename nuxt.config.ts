@@ -106,8 +106,10 @@ export default defineNuxtConfig({
   svgo: {
     defaultImport: 'raw',
   },
-  vite: {
-    plugins: [],
+  vue: {
+    compilerOptions: {
+      isCustomElement: (tag) => tag.startsWith('a-'),
+    },
   },
   css: [
     '@mdi/font/css/materialdesignicons.min.css',

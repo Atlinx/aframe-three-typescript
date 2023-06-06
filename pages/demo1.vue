@@ -1,17 +1,21 @@
 <script setup lang="ts">
-import 'aframe'
-import '@/aframe/systems/my-system'
+const aframeLoaded = ref(false);
+
+if (process.client) {
+  await import('aframe');
+  await import('@/aframe/systems/my-system');
+  aframeLoaded.value = true;
+}
 </script>
 
 <template>
-  <SectionHeader title="Demo 1"></SectionHeader>
+  <SectionHeader title="Demo 1">
+  </SectionHeader>
   <SectionBody>
-    <p>This is a demo</p>
-  </SectionBody>
-  <SectionBody>
-    <a-scene>
-      <a-box></a-box>
+    <a-scene v-if="aframeLoaded" embedded style="height: 40em">
+      <a-box position="0 0.5 -3"></a-box>
       <a-camera></a-camera>
+      <a-sky color="pink"></a-sky>
     </a-scene>
   </SectionBody>
 </template>
