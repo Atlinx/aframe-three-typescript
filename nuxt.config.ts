@@ -85,10 +85,6 @@ export default defineNuxtConfig({
   modules: ['@nuxtjs/google-fonts', 'nuxt-svgo', '@nuxthq/ui'],
   googleFonts: {
     families: {
-      // Urbanist: {
-      //   wght: [100, 200, 300, 400, 500, 600, 700, 800, 900],
-      //   ital: [100, 200, 300, 400, 500, 600, 700, 800, 900],
-      // },
       Raleway: {
         wght: [100, 200, 300, 400, 500, 600, 700, 800, 900],
         ital: [100, 200, 300, 400, 500, 600, 700, 800, 900],

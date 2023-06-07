@@ -2,10 +2,11 @@
   "private": true,
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev",
+    "dev": "nuxt dev --port 4225",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "ngrok": "ngrok http 4225"
   },
   "devDependencies": {
     "@mdi/font": "^7.2.96",
