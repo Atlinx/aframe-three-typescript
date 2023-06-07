@@ -1,15 +1,33 @@
 <script setup lang="ts">
 const aframeLoaded = ref(false);
 
+const props = defineProps<{
+  loadSystems?: () => Promise<void>;
+  attributes?: { [key: string]: any };
+}>();
+
+async function loadDefaultSystems() {
+  await import('@/aframe/systems/my-system');
+}
+
 if (process.client) {
   await import('aframe');
-  await import('@/aframe/systems/my-system');
+
+  await loadDefaultSystems();
+  if (props.loadSystems) await props.loadSystems();
   aframeLoaded.value = true;
 }
 </script>
 
 <template>
-  <div v-if="aframeLoaded">
-    <slot></slot>
-  </div>
+  <ClientOnly>
+    <a-scene
+      v-if="aframeLoaded"
+      v-bind="attributes"
+      embedded
+      class="w-full h-full"
+    >
+      <slot></slot>
+    </a-scene>
+  </ClientOnly>
 </template>

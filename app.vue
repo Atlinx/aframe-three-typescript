@@ -1,12 +1,17 @@
 <script setup lang="ts">
-const route = useRoute()
+const route = useRoute();
 </script>
 
 <template>
-  <div class="bg-white text-black dark:text-gray-400 dark:bg-gray-900 flex flex-col" style="min-height:100%">
-    <Header />
-    <NuxtPage class="flex-auto" />
-    <Footer />
+  <div
+    class="bg-white dark:bg-gray-900 flex flex-col prose dark:prose-invert min-h-full min-w-full"
+  >
+    <div class="flex-auto relative">
+      <div class="absolute w-full h-full">
+        <NuxtPage />
+      </div>
+    </div>
+    <BottomBar />
   </div>
 </template>
 
@@ -27,29 +32,5 @@ body,
 #__nuxt {
   height: 100%;
   min-height: 100%;
-}
-
-a.hover {
-  @apply underline
-}
-
-.text-h1 {
-  @apply text-3xl uppercase mt-16 mb-4 tracking-wide;
-}
-
-.text-section-title {
-  @apply text-3xl pb-4 tracking-wide font-bold uppercase;
-}
-
-@media (min-width: $sm) {
-  .text-section-title {
-    @apply text-5xl font-medium tracking-wider;
-  }
-}
-
-@media (min-width: $md) {
-  .text-section-title {
-    @apply text-6xl;
-  }
 }
 </style>
